@@ -11,10 +11,13 @@
 	</head>
 	<body>
         <?php
+            $currMonth = null;        
              foreach($result as $birthday) {
         ?>
-
-		<h1><?=$birthday['month']?></h1>
+        
+		<?php if($currMonth != $birthday['month']){ echo "<h1>" . $months[$birthday['month']] . "</h1>";
+        $currMonth = $birthday['month'];
+        }?>
 
 
 		<h2><?=$birthday['day']?></h2> 
@@ -22,7 +25,7 @@
         <p>
             <a href="edit.php?id=<?=$birthday['id']?>">
             <?=$birthday['person']?>
-            
+            (<?=$birthday['year']?>)
             </a>
             
                 
