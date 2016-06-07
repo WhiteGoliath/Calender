@@ -10,8 +10,7 @@
         <link href="../common/main.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-        <?php
-            $currMonth = null;        
+        <?php      
              foreach($result as $birthday) {
         ?>
         
@@ -20,7 +19,9 @@
         }?>
 
 
-		<h2><?=$birthday['day']?></h2> 
+		<?php if($currDay != $birthday['day']){ echo "<h2>" . $birthday['day'] . "</h2>";
+        $currDay = $birthday['day'];
+        }?>
 
         <p>
             <a href="edit.php?id=<?=$birthday['id']?>">
